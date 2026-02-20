@@ -8,10 +8,10 @@ Live coding con [Strudel](https://strudel.cc) usando la pista **F4NT4SM4BASE.mp3
 
 1. Sube el repo a GitHub (ver más abajo).
 2. Abre **[strudel.cc](https://strudel.cc)** en el navegador.
-3. Pega y evalúa (Ctrl+Enter / Cmd+Enter) para cargar tus samples (usa **jsDelivr**; con `raw.githubusercontent.com` a veces no se escuchan por CORS/tamaño):
+3. Pega y evalúa (Ctrl+Enter / Cmd+Enter) para cargar tus samples. **Usa la URL directa** del MP3 (recomendado por la [doc de Strudel](https://strudel.cc/learn/samples/)):
 
 ```javascript
-samples('https://cdn.jsdelivr.net/gh/m1gue21/F4NT4SM4@main/strudel.json')
+samples({ base: 'https://cdn.jsdelivr.net/gh/m1gue21/F4NT4SM4@main/samples/base.wav' })
 ```
 
 4. Luego usa el tema con base + ritmo + visuales (copia el bloque del [index.html](index.html) o el ejemplo de “Ejemplo con visuales” más abajo).
@@ -60,7 +60,7 @@ A partir de ahí puedes seguir trabajando con `git add`, `git commit` y `git pus
 
 | Qué | Dónde |
 |-----|--------|
-| Sample base | `samples/base.mp3` |
+| Sample base | `samples/base.wav` |
 | Mapa de samples para GitHub | `strudel.json` (raíz) |
 | Página con REPL embebido | `index.html` |
 
@@ -73,7 +73,8 @@ El REPL ya incluye un tema de ejemplo con **visuales**: oscilloscope en la base 
 **Importante:** Usa solo comillas dobles `"` en las cadenas (no mezcles `'` al cerrar), o el código dará error y no sonará.
 
 ```javascript
-samples('https://cdn.jsdelivr.net/gh/m1gue21/F4NT4SM4@main/strudel.json')
+// strudel.cc: URL directa del sample (recomendado)
+samples({ base: 'https://cdn.jsdelivr.net/gh/m1gue21/F4NT4SM4@main/samples/base.wav' })
 // o en local: samples('http://localhost:5432/')
 
 setcps(0.5)
@@ -90,9 +91,9 @@ stack(
 
 ## Si no se escuchan los samples (strudel.cc)
 
-1. **Usa la URL de jsDelivr** (no la de `raw.githubusercontent.com`):
+1. **Usa la URL directa del MP3** en lugar de `strudel.json` (según la [doc de Strudel](https://strudel.cc/learn/samples/)):
    ```javascript
-   samples('https://cdn.jsdelivr.net/gh/m1gue21/F4NT4SM4@main/strudel.json')
+   samples({ base: 'https://cdn.jsdelivr.net/gh/m1gue21/F4NT4SM4@main/samples/base.wav' })
    ```
 2. **Revisa las comillas:** que todas las cadenas cierren con la misma comilla que abren (p. ej. `"d3:minor"` y `"sawtooth"`, no `"d3:minor'`).
 3. **Espera unos segundos** la primera vez: los samples se cargan al vuelo y el primer ciclo puede llegar tarde.
