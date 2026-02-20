@@ -1,0 +1,9 @@
+{
+  "name": "f4nt4sm4",
+  "private": true,
+  "scripts": {
+    "samples": "cd samples && npx --yes @strudel/sampler",
+    "serve": "npx --yes serve . -p 3000",
+    "start": "echo 'Abre 2 terminales: en una ejecuta npm run samples, en la otra npm run serve. Luego abre http://localhost:3000'"
+  }
+}

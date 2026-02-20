@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>F4NT4SM4 – Strudel</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #0d0d0d;
+      color: #e0e0e0;
+      min-height: 100vh;
+    }
+    h1 {
+      padding: 0.75rem 1rem;
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 600;
+      border-bottom: 1px solid #222;
+    }
+    strudel-repl {
+      display: block;
+      min-height: calc(100vh - 52px);
+    }
+  </style>
+</head>
+<body>
+  <h1>F4NT4SM4 – Live coding con Strudel (base + visuales)</h1>
+  <script src="https://unpkg.com/@strudel/embed@latest"></script>
+  <strudel-repl>
+<!--
+// Local: samples('http://localhost:5432/')
+// Desde GitHub (strudel.cc): descomenta la línea siguiente
+// samples('https://raw.githubusercontent.com/m1gue21/F4NT4SM4/main/strudel.json')
+samples('http://localhost:5432/')
+
+setcps(0.5)
+
+// --- AUDIO + VISUALES ---
+stack(
+  s("base").loop(1).gain(0.7)._scope(),  // oscilloscope de la base
+  s("bd sd bd sd").gain(0.4),
+  s("hh*8").gain(0.15),
+  note("<c2 eb2 g2 bb2>/4").scale("d3:minor").s("sawtooth").lpf(800).gain(0.25)._punchcard({ fill: 1, active: "#FFCA28", inactive: "#7491D2", cycles: 4 })
+)
+
+// Más visuales: ._pianoroll(), ._spiral(), ._spectrum(), ._pitchwheel()
+// Para espectro de todo: añade ._spectrum() a cualquier patrón
+-->
+  </strudel-repl>
+</body>
+</html>
